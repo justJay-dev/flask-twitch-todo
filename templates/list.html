@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% block head %}
+	{{ super() }}
+	<meta http-equiv='refresh' content='10'>
+{% endblock %}
+{% block content %}
+<!--<marquee direction='up' scrollamount='3'>-->
+	<ul class='list-group h3'>
+	{% for task in open_tasks %}
+	<li class='list-group-item'><i class='far fa-circle'></i> {{ task['id'] }} - {{task['title']}}</li>
+	{% endfor %}
+	{% for task in closed_tasks %}
+	<li class='list-group-item'><i class='fas fa-check-circle'></i> <s>{{ task['id'] }}- {{task['title']}} </s></li>
+	{% endfor %}
+	</ul>
+	<!--</marquee>-->
+{% endblock %}

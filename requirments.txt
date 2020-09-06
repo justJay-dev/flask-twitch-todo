@@ -1,0 +1,4 @@
+flask
+kanboard
+bootstrap-flask
+requests
