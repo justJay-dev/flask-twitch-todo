@@ -8,6 +8,7 @@ a small flask service that reads from kanboard
 3) setup venv
 ```py
 python3 -m venv env
+pip3 install -r requirments.txt
 ```
 4) change ````sample-config.py```` to ````config.py```` and adjust variables as needed
 5) run the app
