@@ -5,13 +5,17 @@
 {% endblock %}
 {% block content %}
 <!--<marquee direction='up' scrollamount='3'>-->
-	<ul class='list-group h3'>
-	{% for task in open_tasks %}
-	<li class='list-group-item'><i class='far fa-circle'></i> {{ task['id'] }} - {{task['title']}}</li>
-	{% endfor %}
-	{% for task in closed_tasks %}
-	<li class='list-group-item'><i class='fas fa-check-circle'></i> <s>{{ task['id'] }}- {{task['title']}} </s></li>
+    <div class="border-white">
+	    <ul class='list-group'>
+	    {% for task in open_tasks %}
+	    <li class='list-group-item bg-dark text-warning border-white' ><i class='far fa-circle'></i> {{ task['id'] }} - {{task['title']}}</li>
+	    {% endfor %}
+	{% for task in closed_tasks|sort(attribute='date_completed', reverse = True)%}
+	{% if loop.index <= 1%}
+	<li class='bg-dark list-group-item text-success border-white'><i class='fas fa-check-circle'></i> {{ task['id'] }}- {{task['title']}} </li>
+	{% endif %}
 	{% endfor %}
 	</ul>
+    </div>	
 	<!--</marquee>-->
 {% endblock %}
