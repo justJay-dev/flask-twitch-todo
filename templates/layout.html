@@ -10,9 +10,9 @@
         
         {% block styles %}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
-        {{ render_static('css', 'css/boostrap.css') }}
-            <!-- Bootstrap CSS -->
-            {{ bootstrap.load_css() }}
+        {{render_static('css', 'css/all.css') }}
+        {{ render_static('css', 'css/win95.css') }} 
+        <!-- Bootstrap CSS -->
         {% endblock %}
 
         <title>Twitch TODO</title>
