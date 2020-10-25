@@ -13,13 +13,13 @@ def index():
 
 @app.route('/list')
 def show_list():
-    r = httpx.get('http://localhost:8000')
+    r = httpx.get('http://localhost:8420')
     tasks = r.json()
     return render_template('list.html', open_tasks = tasks)
 
 @app.route('/messenger')
 def messenger_theme():
-    r = httpx.get('http://localhost:8000')
+    r = httpx.get('http://localhost:8420')
     tasks = r.json()
     return render_template('messenger.html', open_tasks = tasks)
 
