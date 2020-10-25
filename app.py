@@ -17,7 +17,12 @@ def show_list():
     tasks = r.json()
     return render_template('list.html', open_tasks = tasks)
 
-
+# WIP THEME
+@app.route('/messenger')
+def messenger_theme():
+    r = httpx.get('http://localhost:8000')
+    tasks = r.json()
+    return render_template('messenger.html', open_tasks = tasks)
 
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0',port = int(os.environ.get('PORT', 8069)))
