@@ -13,7 +13,7 @@ def index():
 
 @app.route('/list')
 def show_list():
-    r = httpx.get('http://localhost:8000')
+    r = httpx.get('http://localhost:8420')
     tasks = r.json()
     return render_template('list.html', open_tasks = tasks)
 
