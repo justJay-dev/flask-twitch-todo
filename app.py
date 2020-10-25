@@ -1,18 +1,11 @@
 import os
 from flask import Flask, render_template, url_for, redirect
 from flask_bootstrap import Bootstrap
-import kanboard
-
-
+import httpx
 
 app = Flask(__name__)
-
 app.config.from_pyfile('config.py')
-
-
 bootstrap = Bootstrap(app)
-
-kb = kanboard.Client(app.config['KANBOARD_ENDPOINT'],app.config['KANBOARD_METHOD'], app.config['KANBOARD_API_KEY'])
 
 @app.route('/')
 def index():
@@ -20,9 +13,9 @@ def index():
 
 @app.route('/list')
 def show_list():
-    open_tasks = kb.get_all_tasks(project_id = app.config['KANBOARD_PROJECT_ID'], status_id = 1)
-    closed_tasks = kb.get_all_tasks(project_id = app.config['KANBOARD_PROJECT_ID'], status_id = 0)
-    return render_template('list.html', open_tasks = open_tasks, closed_tasks = closed_tasks) 
+    r = httpx.get('http://localhost:8000')
+    tasks = r.json()
+    return render_template('list.html', open_tasks = tasks)
 
 
 
