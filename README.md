@@ -1,9 +1,9 @@
 # flask-twitch-todo
-a small flask service that reads from kanboard
+a small flask service that reads from todo-rest
 
 
 # Usage instructions.
-1) Setup kanboard. [Instructions here]('https://docs.kanboard.org/en/latest/admin_guide/docker.html#running-the-container')
+1) Setup todo-rest. [Instructions here]('https://rhodecode.nyx.xyz/todo-rest/')
 2) Clone this repository
 3) setup venv
 ```py
